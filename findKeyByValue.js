@@ -14,7 +14,7 @@ const findKeyByValue = function(object, value) {
       return key;
     }
   }
-}
+};
 
 assertEqual(findKeyByValue({a: 1, b: 2, c: 3}, 2), 'b');
 assertEqual(findKeyByValue({a: 1, b: 2, c: 3}, 3), 'c');
