@@ -1,11 +1,10 @@
 // FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
-  let strAct = typeof actual === "string" ? '"' : '';
-  let strExp = typeof expected === "string" ? '"' : '';
+  const inspect = require('util').inspect;
   if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${strAct}${actual}${strAct} === ${strExp}${expected}${strExp}`);
+    console.log("✅✅✅ Assertion Passed:", inspect(actual), "===", inspect(expected));
   } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${strAct}${actual}${strAct} !== ${strExp}${expected}${strExp}`);
+    console.log("🛑🛑🛑 Assertion Failed:", inspect(actual), "!==", inspect(expected));
   }
 };
 
