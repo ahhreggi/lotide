@@ -14,7 +14,7 @@ const eqObjects = function(object1, object2) {
   // If the objects don't have the same length, they are not equal
   if (Object.keys(object1).length !== Object.keys(object2).length) {
     return false;
-  } else {  
+  } else {
     // For each key in object1
     for (const key of Object.keys(object1)) {
       // If the key's value in both objects are arrays, check if they are equal
