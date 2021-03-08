@@ -1,4 +1,3 @@
-// FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
   const inspect = require('util').inspect;
   if (actual === expected) {
@@ -8,11 +7,4 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// TEST CODE
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
-assertEqual("Hello", "Hello");
-assertEqual("Hello", "World");
-assertEqual(123, 123);
-assertEqual(123, 456);
-assertEqual(123, "123");
+module.exports = assertEqual;
