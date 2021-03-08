@@ -1,24 +1,4 @@
-const assertEqual = function(actual, expected) {
-  let strAct = typeof actual === "string" ? '"' : '';
-  let strExp = typeof expected === "string" ? '"' : '';
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${strAct}${actual}${strAct} === ${strExp}${expected}${strExp}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${strAct}${actual}${strAct} !== ${strExp}${expected}${strExp}`);
-  }
-};
-
-const eqArrays = function(array1, array2) {
-  if (array1.length !== array2.length) {
-    return false;
-  }
-  for (let i = 0; i < array1.length; i++) {
-    if (array1[i] !== array2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
+const eqArrays = require('./eqArrays');
 
 // Return true if both objects have identical keys with identical values
 // Otherwise, return false
@@ -46,30 +26,34 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
-// Test Cases
+module.exports = eqObjects;
 
-console.log('--- Standard Test Cases ---');
+// TESTING
 
-const ab = {a: "1", b: "2"};
-const ba = {b: "2", a: "1"};
-assertEqual(eqObjects(ab, ba), true);
+// const assertEqual = require('./assertEqual');
 
-const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false);
+// console.log('--- Standard Test Cases ---');
 
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true);
+// const ab = {a: "1", b: "2"};
+// const ba = {b: "2", a: "1"};
+// assertEqual(eqObjects(ab, ba), true);
 
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false);
+// const abc = { a: "1", b: "2", c: "3" };
+// assertEqual(eqObjects(ab, abc), false);
 
-console.log('--- Recursive Test Cases ---');
+// const cd = { c: "1", d: ["2", 3] };
+// const dc = { d: ["2", 3], c: "1" };
+// assertEqual(eqObjects(cd, dc), true);
 
-const x = { a: {c: 1}, b: {d: 2}};
-const y = { b: {d: 2}, a: {c: 1}};
-assertEqual(eqObjects(x, y), true);
+// const cd2 = { c: "1", d: ["2", 3, 4] };
+// assertEqual(eqObjects(cd, cd2), false);
 
-const x1 = { a: {c: {i: 1}}, b: {d: {j: 2}}};
-const y1 = { a: {c: {i: 1}}, b: {d: {j: 2}}};
-assertEqual(eqObjects(x1, y1), true);
+// console.log('--- Recursive Test Cases ---');
+
+// const x = { a: {c: 1}, b: {d: 2}};
+// const y = { b: {d: 2}, a: {c: 1}};
+// assertEqual(eqObjects(x, y), true);
+
+// const x1 = { a: {c: {i: 1}}, b: {d: {j: 2}}};
+// const y1 = { a: {c: {i: 1}}, b: {d: {j: 2}}};
+// assertEqual(eqObjects(x1, y1), true);
